@@ -20,6 +20,7 @@ MAILTO=someone@example.com
 # Meaning, it's safe to constantly run them because they won't double-up
 # on each other, you can watch the logs to see when they actually begin
 # execution, or immediately exit if the same script is already running
-* * * * * www-data   /srv/mautic-scripts/quick-updates.sh
-* * * * * www-data   /srv/mautic-scripts/segment-updates.sh
-* * * * * www-data   /srv/mautic-scripts/send-emails.sh 
+*/2 * * * * www-data   /srv/mautic-scripts/segment-updates.sh
+1-59/2 * * * * www-data   /srv/mautic-scripts/quick-updates.sh
+*/5 * * * * www-data   /srv/mautic-scripts/send-emails.sh 
+0 1 * * * www-data   /srv/mautic-scripts/maintenance-updates.sh
