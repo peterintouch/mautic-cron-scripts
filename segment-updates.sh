@@ -20,7 +20,7 @@ if [ -z "$IS_RUNNING" ]; then
    if [[ $(ip a | grep $MAUTIC_VIP &> /dev/null; echo $?) == 0 ]]; then
       verbose "Did NOT find a currently running script, beginning execution"
       verbose "Running mautic:segment:update"
-      php $MAUTIC_BASE/bin/console mautic:segment:update $MAUTIC_OPTS $SEGMENT_BATCH_LIMIT >> $LOGFILE
+      php $MAUTIC_BASE/bin/console mautic:segments:update $MAUTIC_OPTS $SEGMENT_BATCH_LIMIT >> $LOGFILE
    fi
 else
    verbose "Segments script is already running - exiting"
